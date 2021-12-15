@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: 'Apigee Weather API'
+  description: 'Access current weather data for any location on Earth'
+  version: '1.0.0'
+servers:
+  - url: https://34.120.110.39.nip.io
+paths:
+  /v1/test-task?q={}&appid={}:
+    get:
+      description: 'Get weather, temperature converted to Celcius, wind in the chosen location'
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: Lviv
+        - name: appid
+          in: query
+          schema:
+            type: string
+          example: 6c32948207b8d959305c5bf361bb53e7
+      responses:
+        '200':
+          description: 'A successful response'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      servers:
+        - url: https://34.120.110.39.nip.io
+    servers:
+      - url: https://34.120.110.39.nip.io
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      
+      
+security:
+  - bearerAuth: [] 

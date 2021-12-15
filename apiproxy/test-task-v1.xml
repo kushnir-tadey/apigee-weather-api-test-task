@@ -1,0 +1,30 @@
+<APIProxy revision="30" name="test-task-v1">
+    <DisplayName></DisplayName>
+    <Description>Test assignment v1</Description>
+    <CreatedAt>1639528288060</CreatedAt>
+    <LastModifiedAt>1639528288060</LastModifiedAt>
+    <BasePaths>/v1/test-task</BasePaths>
+    <BasePaths>/oauth2/v1</BasePaths>
+    <Policies>
+        <Policy>add-cors</Policy>
+        <Policy>OAuth-v2-GenerateAccessToken</Policy>
+        <Policy>OAuth-v2-VerifyAccessToken</Policy>
+        <Policy>JS-ModifyPayload</Policy>
+        <Policy>Quota</Policy>
+        <Policy>AM-RemoveAuthHeader</Policy>
+        <Policy>VerifyAPIKey</Policy>
+        <Policy>JSONtoXML</Policy>
+        <Policy>OpenAPISpecValidation</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+        <ProxyEndpoint>oauth2</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://ModifyPayload.js</Resource>
+        <Resource>oas://OpenAPI-Spec-Validation.yaml</Resource>
+    </Resources>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
